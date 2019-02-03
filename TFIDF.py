@@ -55,11 +55,11 @@ if __name__ == '__main__':
     idfpath = r'H:\doc\idf.txt'
 
     # 创建本次文档的IDF
-    # contents = [i['content'] for i in data]
-    # word_idf = ti.idf(stoppath, contents)
-    # with open(idfpath, 'a', encoding='utf-8') as f:
-    #     for word in word_idf.keys():
-    #         f.write('{0} {1}\n'.format(word, word_idf[word]))
+    contents = [i['content'] for i in data]
+    word_idf = ti.idf(stoppath, contents)
+    with open(idfpath, 'a', encoding='utf-8') as f:
+        for word in word_idf.keys():
+            f.write('{0} {1}\n'.format(word, word_idf[word]))
 
     # 通过TFIDF提取特征关键词并存入数据库
     count = 0
