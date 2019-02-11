@@ -39,7 +39,7 @@ class TFIDF(object):
     def tfidf(self, stoppath, idfpath, content):  # TFIDF计算
         jieba.analyse.set_stop_words(stoppath)
         jieba.analyse.set_idf_path(idfpath)
-        keywords = [i for i in jieba.analyse.extract_tags(content, topK=100, withWeight=False)]
+        keywords = [i for i in jieba.analyse.extract_tags(content, topK=100, withWeight=True)]
         return keywords
 
 
@@ -70,7 +70,7 @@ if __name__ == '__main__':
         print('save to mongo: {}'.format(count))
 
 
-#  因为创建的idf 没有对数据进行清理，因此对jieba 的tfidf.py 作了修改
+#  因为创建的idf 没有对数据进行清理，因此对jieba 的tfidf.py 作了修改，跳过错误数据
 #     def set_new_path(self, new_idf_path):
 #         if self.path != new_idf_path:
 #             self.path = new_idf_path
